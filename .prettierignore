@@ -1,0 +1,9 @@
+build
+coverage/
+node_modules/
+test/json/
+package-lock.json
+tsconfig.json
+*.config.js
+*.config.mjs
+

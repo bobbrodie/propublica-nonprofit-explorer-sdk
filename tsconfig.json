@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "declaration": true,
+    "target": "es2022",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "sourceMap": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": false,
+    "useUnknownInCatchVariables": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": false,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
+  },
+  "lib": [
+    "es2022",
+    "node"
+  ],
+  "include": [
+    "src/**/*.ts",
+  ],
+  "exclude": [
+    // "jest.config.ts",
+    "coverage/**/*",
+    "test/json/**/*",
+    // "test/**/*.spec.ts"
+  ]
+}

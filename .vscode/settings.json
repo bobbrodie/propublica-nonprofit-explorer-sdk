@@ -1,0 +1,14 @@
+{
+  "editor.tabSize": 2,
+  "editor.rulers": [80],
+  "editor.formatOnSave": true,
+  "[json]": {
+    "editor.formatOnSave": true
+  },
+  "files.associations": {
+    "**/test/json/*.json": "json-noformat"
+  },
+  "[json-noformat]": {
+    "editor.formatOnSave": false
+  }
+}
