@@ -1,5 +1,7 @@
 # SDK for the ProPublica Nonprofit Explorer API
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/fce01a5e366b175c1f6b/maintainability)](https://codeclimate.com/github/bobbrodie/propublica-nonprofit-explorer-sdk/maintainability) ![CI](https://github.com/bobbrodie/propublica-nonprofit-explorer-sdk/actions/workflows/ci.yml/badge.svg)
+
 This is an SDK for the [ProPublica Nonprofit Explorer API](https://projects.propublica.org/nonprofits/api/).
 
 ---
