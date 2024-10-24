@@ -1,5 +1,5 @@
 export const FORMTYPE = {
-  990: 0,
+  '990': 0,
   '990_EZ': 1,
   '990_PF': 2,
 };

@@ -55,11 +55,11 @@ interface ISearchOrganization {
    */
   strein: string;
   name: string;
-  subname?: string | null;
+  sub_name: string | null;
   city: string;
   state: string;
-  ntee_code: string;
-  raw_ntee_code: string;
+  ntee_code: string | null;
+  raw_ntee_code: string | null;
   subseccd: number;
   has_subseccd: boolean;
   have_filings: boolean | null;

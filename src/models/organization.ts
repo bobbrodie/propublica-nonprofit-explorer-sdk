@@ -1,5 +1,4 @@
-import { NTEEKey } from '../constants';
-import { Filing } from './filing';
+import { IFiling } from './filing';
 
 /**
  * Organization object
@@ -12,7 +11,7 @@ export interface IOrganization {
   /**
    * Employer Identification Number
    */
-  ein: string;
+  ein: number;
   /**
    * Organization name.
    */
@@ -20,7 +19,7 @@ export interface IOrganization {
   /**
    * Care of Name
    */
-  careofname?: string;
+  careofname: string | null;
   /**
    * Street address
    */
@@ -118,11 +117,11 @@ export interface IOrganization {
    *
    * @see {@link https://www.irs.gov/pub/irs-soi/eobk13.doc|IRS}
    */
-  ntee_code: NTEEKey;
+  ntee_code: string;
   /**
    * Sort Name
    */
-  sort_name?: string;
+  sort_name: string | null;
   /**
    * Created At
    */
@@ -138,11 +137,11 @@ export interface IOrganization {
   /**
    * Have Extracts
    */
-  have_extracts?: boolean;
+  have_extracts: boolean | null;
   /**
    * Have PDFs
    */
-  have_pdfs?: boolean;
+  have_pdfs: boolean | null;
   /**
    * Latest Object ID
    */
@@ -170,13 +169,13 @@ export interface IOrganizationResponse {
   /**
    * Filings with data
    *
-   * @see {@link Filing}
+   * @see {@link IFiling}
    */
-  filings_with_data: Filing[];
+  filings_with_data: IFiling[];
   /**
    * Filings without data
    *
-   * @see {@link Filing}
+   * @see {@link IFiling}
    */
-  filings_without_data: Filing[];
+  filings_without_data: IFiling[];
 }

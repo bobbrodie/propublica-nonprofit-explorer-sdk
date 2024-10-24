@@ -3,6 +3,7 @@ import {
   ISearchRequest,
   ISearchResponse,
 } from './models';
+import { validateOrganizationResponse } from './models/organization.zod';
 import {
   validateSearchRequest,
   validateSearchResponse,
@@ -42,7 +43,7 @@ export class Client {
       const response: IOrganizationResponse = await this.get(
         `/organizations/${ein}.json`,
       );
-      return response;
+      return validateOrganizationResponse(response);
     } catch (err: unknown) {
       this.handleError(err);
     }

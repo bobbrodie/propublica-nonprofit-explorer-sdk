@@ -6,11 +6,11 @@ const SearchOrganizationSchema = z.object({
   ein: z.number(),
   strein: z.string(),
   name: z.string(),
-  subname: z.string().nullable().optional(),
+  sub_name: z.string().nullable(),
   city: z.string(),
   state: z.string(),
-  ntee_code: z.string(),
-  raw_ntee_code: z.string(),
+  ntee_code: z.string().nullable(),
+  raw_ntee_code: z.string().nullable(),
   subseccd: z.number(),
   has_subseccd: z.boolean(),
   have_filings: z.boolean().nullable(),
@@ -18,6 +18,7 @@ const SearchOrganizationSchema = z.object({
   have_pdfs: z.boolean().nullable(),
   score: z.number(),
 });
+
 export const SearchResponseSchema = z.object({
   total_results: z.number(),
   num_pages: z.number(),

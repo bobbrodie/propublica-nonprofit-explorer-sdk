@@ -1,11 +1,8 @@
-import { FORMTYPEKey } from '../constants';
-import { IOrganization } from './organization';
-
 /**
  * Filing
  */
-export interface Filing {
-  ein: string;
+export interface IFiling {
+  ein?: number;
   /**
    * Tax Period
    */
@@ -17,25 +14,25 @@ export interface Filing {
   /**
    * Form Type
    *
-   * @see {@link FORMTYPEKey}
    */
-  formtype: FORMTYPEKey;
+  formtype: number;
+  /**
+   * Form Type String
+   *
+   */
+  formtype_str?: string;
   /**
    * PDF URL
    */
-  pdf_url?: URL;
+  pdf_url: string | null;
   /**
    * Updated
    */
-  updated: Date;
-  /**
-   * Organization
-   */
-  organization: IOrganization;
+  updated?: Date;
   /**
    * Subsection code
    */
-  subseccd: number;
+  subseccd?: number;
 
   // Optional based on the form type
 
@@ -62,7 +59,7 @@ export interface Filing {
   /**
    * Tax Paid
    */
-  tax_pd?: string;
+  tax_pd?: string | null;
   /**
    * Subsection Code
    */
