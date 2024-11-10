@@ -22,8 +22,8 @@ jobs:
           CC_TEST_REPORTER_ID: 81516f1b30ed2b65ac54b02a6b0f27a110fa3111a20450b4d2d10d8096ea8b4c
         with:
           node-version: ${{ matrix.node-version }}
+          coverageCommand: npm run coverage
           coverageLocations: |
             ${{github.workspace}}/coverage/lcov.info:lcov
       - run: npm ci
       - run: npm run build --if-present
-      - run: npm run unit
