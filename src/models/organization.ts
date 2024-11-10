@@ -23,101 +23,101 @@ export interface IOrganization {
   /**
    * Street address
    */
-  address: string;
+  address: string | null;
   /**
    * City
    */
-  city: string;
+  city: string | null;
   /**
    * State
    */
-  state: string;
+  state: string | null;
   /**
    * ZIP code
    */
-  zipcode: string;
+  zipcode: string | null;
   /**
    * Exemption Number
    */
-  exemption_number?: number;
+  exemption_number?: number | null;
   /**
    * Subsection Code
    */
-  subsection_code: number;
+  subsection_code: number | null;
   /**
    * Affiliation Code
    */
-  affiliation_code: number;
+  affiliation_code: number | null;
   /**
    * Classification Codes
    */
-  classification_codes?: string;
+  classification_codes?: string | null;
   /**
    * Ruling Date
    */
-  ruling_date?: string;
+  ruling_date?: string | null;
   /**
    * Deductibility Code
    */
-  deductibility_code?: number;
+  deductibility_code?: number | null;
   /**
    * Foundation Code
    */
-  foundation_code?: number;
+  foundation_code?: number | null;
   /**
    * Activity Codes
    */
-  activity_codes?: string;
+  activity_codes?: string | null;
   /**
    * Organization Code
    */
-  organization_code?: number;
+  organization_code?: number | null;
   /**
    * Exempt Organization Status Code
    */
-  exempt_organization_status_code: number;
+  exempt_organization_status_code: number | null;
   /**
    * Tax Period
    */
-  tax_period: string;
+  tax_period: string | null;
   /**
    * Asset Code
    */
-  asset_code?: number;
+  asset_code?: number | null;
   /**
    * Income Code
    */
-  income_code: number;
+  income_code: number | null;
   /**
    * Filing Requirement Code
    */
-  filing_requirement_code: number;
+  filing_requirement_code: number | null;
   /**
    * PF Filing Requirement Code
    */
-  pf_filing_requirement_code: number;
+  pf_filing_requirement_code: number | null;
   /**
    * Accounting Period
    */
-  accounting_period: number;
+  accounting_period: number | null;
   /**
    * Asset Amount
    */
-  asset_amount: number;
+  asset_amount: number | null;
   /**
    * Income Amount
    */
-  income_amount: number;
+  income_amount: number | null;
   /**
    * Revenue Amount
    */
-  revenue_amount: number;
+  revenue_amount: number | null;
   /**
    * National Taxonomy of Exempt Entities (NTEE) category
    *
    * @see {@link https://www.irs.gov/pub/irs-soi/eobk13.doc|IRS}
    */
-  ntee_code: string;
+  ntee_code: string | null;
   /**
    * Sort Name
    */
@@ -125,15 +125,15 @@ export interface IOrganization {
   /**
    * Created At
    */
-  created_at: Date;
+  created_at: Date | null;
   /**
    * Updated At
    */
-  updated_at: Date;
+  updated_at: Date | null;
   /**
    * Data Source
    */
-  data_source: string;
+  data_source: string | null;
   /**
    * Have Extracts
    */
@@ -145,7 +145,7 @@ export interface IOrganization {
   /**
    * Latest Object ID
    */
-  latest_object_id?: string;
+  latest_object_id?: string | null;
 }
 
 /**

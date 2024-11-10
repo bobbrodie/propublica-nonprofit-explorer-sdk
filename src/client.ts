@@ -37,7 +37,8 @@ export class Client {
    *
    * @param ein Employer Identification Number
    * @returns Organization object
-   */ async organization(ein: number): Promise<IOrganizationResponse> {
+   */
+  async organization(ein: number): Promise<IOrganizationResponse> {
     this.validateEIN(ein);
     try {
       const response: IOrganizationResponse = await this.get(

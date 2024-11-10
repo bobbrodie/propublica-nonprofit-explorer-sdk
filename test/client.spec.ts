@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { APIError } from '../src/client';
 import * as NonprofitExplorerSDK from '../src/index';
+import * as mockOrganizationUnknownResponse from './json/mockOrganizationUnknownResponse.json';
 import * as mockOrganizationResponse from './json/mockOrganizationResponse.json';
 import * as mockSearchResponse from './json/mockSearchResponse.json';
 
@@ -156,25 +157,38 @@ describe('Client', () => {
 
       const result = await client.organization(142007220);
 
-      expect(result).toEqual(mockOrganizationResponse);
+      expect(result.organization.ein).toBe(142007220);
       expect(mockFetch).toHaveBeenCalledWith(
         'https://projects.propublica.org/nonprofits/api/v2/organizations/142007220.json',
         { method: 'GET' },
       );
     });
 
-    it('should handle null response body', async () => {
+    it('should handle unknown organization', async () => {
+      const mockReadableStream = new ReadableStream({
+        start(controller) {
+          controller.enqueue(
+            new TextEncoder().encode(
+              JSON.stringify(mockOrganizationUnknownResponse),
+            ),
+          );
+          controller.close();
+        },
+      });
+
       const mockFetch = jest.fn<typeof fetch>().mockResolvedValue({
         ok: true,
         status: 200,
-        body: null,
+        json: async () => mockOrganizationUnknownResponse,
+        text: async () => JSON.stringify(mockOrganizationUnknownResponse),
+        body: mockReadableStream,
       } as Response);
 
       global.fetch = mockFetch;
 
-      const result = await client.organization(142007220);
+      const result = await client.organization(123456789);
 
-      expect(result).toBeNull();
+      expect(result).toEqual(mockOrganizationUnknownResponse);
     });
 
     it('should handle APIError', async () => {
