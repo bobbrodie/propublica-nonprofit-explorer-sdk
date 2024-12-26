@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "SDK for ProPublica Nonprofit Explorer API",
   "main": "dist/index",
-  "typings": "dist/index",
-  "files": [
-    "dist/**/*.js",
-    "dist/**/*.d.ts"
-  ],
+  "types": "dist/index",
+  "exports": {
+    ".": "./dist/index.js",
+    "./models": "./dist/models/index.js",
+    "./constants": "./dist/constants/index.js"
+  },
+  "repository": "bobbrodie/propublica-nonprofit-explorer-sdk",
   "scripts": {
     "build": "rimraf dist && tsc -p ./tsconfig.json",
     "coverage": "npm run unit -- --coverage",
@@ -19,11 +21,18 @@
     "test": "npm run format && npm run lint && npm run coverage",
     "unit": "jest --runInBand"
   },
+  "keywords": [
+    "nonprofit"
+  ],
   "author": "Robert Brodie <rbrodie85@gmail.com>",
   "license": "MIT",
   "engines": {
     "node": ">=18 <24"
   },
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts"
+  ],
   "devDependencies": {
     "@eslint/js": "^9.15.0",
     "@types/eslint__js": "^8.42.3",
@@ -43,10 +52,10 @@
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.18.2"
   },
-  "lint-staged": {
-    "**/*": "eslint --fix"
-  },
   "dependencies": {
     "zod": "^3.23.8"
+  },
+  "lint-staged": {
+    "**/*": "eslint --fix"
   }
 }
