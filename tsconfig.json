@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "moduleResolution": "node",
     "declaration": true,
     "target": "es2022",
     "outDir": "./dist",
@@ -25,9 +24,7 @@
     "src/**/*.ts",
   ],
   "exclude": [
-    // "jest.config.ts",
     "coverage/**/*",
     "test/json/**/*",
-    // "test/**/*.spec.ts"
   ]
 }
