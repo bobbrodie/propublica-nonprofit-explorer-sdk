@@ -1,4 +1,5 @@
+import * as constants from './constants';
 import * as models from './models';
 import { Client } from './client';
 
-export { models, Client };
+export { constants, models, Client };
