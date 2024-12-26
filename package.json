@@ -9,7 +9,10 @@
     "./models": "./dist/models/index.js",
     "./constants": "./dist/constants/index.js"
   },
-  "repository": "bobbrodie/propublica-nonprofit-explorer-sdk",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bobbrodie/propublica-nonprofit-explorer-sdk.git"
+  },
   "scripts": {
     "build": "rimraf dist && tsc -p ./tsconfig.json",
     "coverage": "npm run unit -- --coverage",
