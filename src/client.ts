@@ -1,3 +1,4 @@
+import { API_BASE_URL, SDK_VERSION } from './constants';
 import {
   IOrganizationResponse,
   ISearchRequest,
@@ -16,8 +17,6 @@ export class APIError extends Error {
   }
 }
 export class Client {
-  private baseUrl: string = 'https://projects.propublica.org/nonprofits/api/v2';
-
   /**
    * Search for organizations
    *
@@ -74,6 +73,12 @@ export class Client {
     return this.parseResponse(response);
   }
 
+  /**
+   * Parse the API response
+   *
+   * @param response API response
+   * @returns
+   */
   private async parseResponse(response: Response) {
     if (response.body == null) {
       return null;
@@ -90,6 +95,11 @@ export class Client {
     return JSON.parse(result);
   }
 
+  /**
+   * Read chunks from API response
+   *
+   * @param reader Stream reader
+   */
   private async *readChunks(reader: ReadableStreamDefaultReader<Uint8Array>) {
     while (true) {
       const { done, value } = await reader.read();
@@ -97,6 +107,15 @@ export class Client {
       yield value;
     }
   }
+
+  /**
+   * Make a request
+   *
+   * @param method HTTP method to be used
+   * @param path URL path to call
+   * @param params Parameters
+   * @returns
+   */
   private async request(
     method: string,
     path: string,
@@ -104,7 +123,7 @@ export class Client {
   ): Promise<Response> {
     try {
       // TODO: Set User-Agent header
-      let url = this.baseUrl + path;
+      let url = API_BASE_URL + path;
 
       if (Object.keys(params).length > 0) {
         const query = '?' + new URLSearchParams(params).toString();
@@ -112,6 +131,9 @@ export class Client {
       }
 
       const response = await fetch(url, {
+        headers: {
+          'User-Agent': 'NonProfitExplorerSDK/' + SDK_VERSION,
+        },
         method: method,
       });
 

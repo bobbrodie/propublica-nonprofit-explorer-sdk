@@ -8,3 +8,30 @@ This is an SDK for the [ProPublica Nonprofit Explorer API](https://projects.prop
 
 > Disclaimer: This SDK is not officially supported by ProPublica and I am not
 > affiliated with ProPublica in any way.
+
+---
+
+## Usage
+
+### Get an Organization by EIN
+
+```typescript
+const client = new Client();
+const response = await client.organization(142007220);
+```
+
+### Search for an Organization
+
+> Note: `num_pages` is one-indexed but `cur_page` is zero-indexed. This is part
+> of the API, so I do not change it.
+
+```typescript
+const client = new Client();
+const response = await client.search({
+  q: 'propublica',
+  page: 0,
+  'state[id]': 'NY',
+  'ntee[id]': 1,
+  'c_code[id]': 3,
+});
+```

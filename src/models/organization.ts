@@ -158,20 +158,24 @@ export interface IOrganizationResponse {
    * @see {@link IOrganization}
    */
   organization: IOrganization;
+
   /**
    * Citation of data sources
    */
   data_source: string;
+
   /**
    * Version of the Nonprofit Explorer API used to generate the response
    */
   api_version: number;
+
   /**
    * Filings with data
    *
    * @see {@link IFiling}
    */
   filings_with_data: IFiling[];
+
   /**
    * Filings without data
    *

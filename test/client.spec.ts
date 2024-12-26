@@ -81,7 +81,12 @@ describe('Client', () => {
 
       expect(mockFetch).toHaveBeenCalledWith(
         'https://projects.propublica.org/nonprofits/api/v2/search.json?q=propublica',
-        { method: 'GET' },
+        {
+          headers: {
+            'User-Agent': 'NonProfitExplorerSDK/1.0.0',
+          },
+          method: 'GET',
+        },
       );
     });
 
@@ -160,7 +165,12 @@ describe('Client', () => {
       expect(result.organization.ein).toBe(142007220);
       expect(mockFetch).toHaveBeenCalledWith(
         'https://projects.propublica.org/nonprofits/api/v2/organizations/142007220.json',
-        { method: 'GET' },
+        {
+          headers: {
+            'User-Agent': 'NonProfitExplorerSDK/1.0.0',
+          },
+          method: 'GET',
+        },
       );
     });
 

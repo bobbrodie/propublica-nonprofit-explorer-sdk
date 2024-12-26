@@ -1,3 +1,6 @@
+/**
+ * Form Type
+ */
 export const FORMTYPE = {
   '990': 0,
   '990_EZ': 1,
