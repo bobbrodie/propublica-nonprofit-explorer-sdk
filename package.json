@@ -6,8 +6,8 @@
   "types": "dist/index",
   "exports": {
     ".": "./dist/index.js",
-    "./models": "./dist/models/index.js",
-    "./constants": "./dist/constants/index.js"
+    "./constants": "./dist/constants/index.js",
+    "./models": "./dist/models/index.js"
   },
   "repository": {
     "type": "git",
