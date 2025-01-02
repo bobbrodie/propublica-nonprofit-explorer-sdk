@@ -83,7 +83,7 @@ describe('Client', () => {
         'https://projects.propublica.org/nonprofits/api/v2/search.json?q=propublica',
         {
           headers: {
-            'User-Agent': 'NonProfitExplorerSDK/1.0.1',
+            'User-Agent': 'NonProfitExplorerSDK/1.0.2',
           },
           method: 'GET',
         },
@@ -167,7 +167,7 @@ describe('Client', () => {
         'https://projects.propublica.org/nonprofits/api/v2/organizations/142007220.json',
         {
           headers: {
-            'User-Agent': 'NonProfitExplorerSDK/1.0.1',
+            'User-Agent': 'NonProfitExplorerSDK/1.0.2',
           },
           method: 'GET',
         },
