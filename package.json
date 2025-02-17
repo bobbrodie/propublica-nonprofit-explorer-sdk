@@ -41,7 +41,7 @@
     "@types/eslint__js": "8.42.3",
     "@types/eslint-config-prettier": "6.11.3",
     "@types/jest": "29.5.14",
-    "eslint": "9.18.0",
+    "eslint": "9.20.1",
     "eslint-config-prettier": "10.0.1",
     "eslint-plugin-prettier": "5.2.3",
     "globals": "15.14.0",
