@@ -1,6 +1,6 @@
 {
   "name": "propublica-nonprofit-explorer-sdk",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "SDK for ProPublica Nonprofit Explorer API",
   "main": "dist/index",
   "types": "dist/index",
@@ -30,7 +30,7 @@
   "author": "Robert Brodie <rbrodie85@gmail.com>",
   "license": "MIT",
   "engines": {
-    "node": ">=18 <25"
+    "node": ">=20 <25"
   },
   "files": [
     "dist/**/*.js",
