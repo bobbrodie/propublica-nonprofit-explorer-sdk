@@ -10,6 +10,5 @@
   },
   "[json-noformat]": {
     "editor.formatOnSave": false
-  },
-  "codeQL.githubDatabase.download": "never"
+  }
 }
