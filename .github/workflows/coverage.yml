@@ -14,18 +14,7 @@ jobs:
         node-version: [24.x]
 
     steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+      - uses: qltysh/qlty-action/coverage@v2
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm run build --if-present
-      - uses: paambaati/codeclimate-action@v9.0.0
-        env:
-          CC_TEST_REPORTER_ID: 81516f1b30ed2b65ac54b02a6b0f27a110fa3111a20450b4d2d10d8096ea8b4c
-        with:
-          node-version: ${{ matrix.node-version }}
-          coverageCommand: npm run coverage
-          coverageLocations: |
-            ${{github.workspace}}/coverage/lcov.info:lcov
+          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          files: coverage/lcov.info
