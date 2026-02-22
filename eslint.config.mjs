@@ -1,32 +1,19 @@
-import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import globals from 'globals';
-import tsParser from '@typescript-eslint/parser';
 import js from '@eslint/js';
-import { FlatCompat } from '@eslint/eslintrc';
-
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
+import tseslint from 'typescript-eslint';
+import eslintPluginPrettier from 'eslint-plugin-prettier/recommended';
 
 export default [
   {
     ignores: ['eslint.config.mjs', 'coverage/', 'dist/', 'test/json/'],
   },
-  ...compat.extends(
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-    'eslint:recommended',
-  ),
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  eslintPluginPrettier,
   {
     files: ['**/*.ts', '**/*.tsx'],
     ignores: ['**/*.d.ts'],
-    plugins: {
-      '@typescript-eslint': typescriptEslint,
-    },
     languageOptions: {
-      parser: tsParser,
       parserOptions: {
         project: ['./tsconfig*.json'],
       },
