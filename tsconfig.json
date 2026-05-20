@@ -12,7 +12,7 @@
     "strictPropertyInitialization": false,
     "useUnknownInCatchVariables": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },
