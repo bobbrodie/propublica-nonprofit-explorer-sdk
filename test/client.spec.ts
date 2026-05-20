@@ -1,9 +1,9 @@
 import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { APIError } from '../src/client';
 import * as NonprofitExplorerSDK from '../src/index';
-import * as mockOrganizationUnknownResponse from './json/mockOrganizationUnknownResponse.json';
-import * as mockOrganizationResponse from './json/mockOrganizationResponse.json';
-import * as mockSearchResponse from './json/mockSearchResponse.json';
+import mockOrganizationUnknownResponse from './json/mockOrganizationUnknownResponse.json';
+import mockOrganizationResponse from './json/mockOrganizationResponse.json';
+import mockSearchResponse from './json/mockSearchResponse.json';
 
 describe('Client', () => {
   let client: NonprofitExplorerSDK.Client;
@@ -68,7 +68,7 @@ describe('Client', () => {
         body: mockReadableStream,
       } as Response);
 
-      global.fetch = mockFetch;
+      globalThis.fetch = mockFetch;
 
       const searchParams = { q: 'propublica' };
       const result = await client.search(searchParams);
@@ -97,7 +97,7 @@ describe('Client', () => {
         body: null,
       } as Response);
 
-      global.fetch = mockFetch;
+      globalThis.fetch = mockFetch;
 
       const searchParams = { q: 'propublica' };
       await expect(client.search(searchParams)).rejects.toThrow();
@@ -107,7 +107,7 @@ describe('Client', () => {
       const mockFetch = jest
         .fn<typeof fetch>()
         .mockRejectedValue(new APIError('API Error'));
-      global.fetch = mockFetch;
+      globalThis.fetch = mockFetch;
 
       const searchParams = { q: 'propublica' };
       await expect(client.search(searchParams)).rejects.toThrow(APIError);
@@ -118,7 +118,7 @@ describe('Client', () => {
       const mockFetch = jest
         .fn<typeof fetch>()
         .mockRejectedValue(new Error('Network error'));
-      global.fetch = mockFetch;
+      globalThis.fetch = mockFetch;
 
       const searchParams = { q: 'propublica' };
       await expect(client.search(searchParams)).rejects.toThrow(
@@ -130,7 +130,7 @@ describe('Client', () => {
       const mockFetch = jest
         .fn<typeof fetch>()
         .mockRejectedValue('Unknown error');
-      global.fetch = mockFetch;
+      globalThis.fetch = mockFetch;
 
       const searchParams = { q: 'propublica' };
       await expect(client.search(searchParams)).rejects.toThrow(
@@ -158,7 +158,7 @@ describe('Client', () => {
         body: mockReadableStream,
       } as Response);
 
-      global.fetch = mockFetch;
+      globalThis.fetch = mockFetch;
 
       const result = await client.organization(142007220);
 
@@ -194,7 +194,7 @@ describe('Client', () => {
         body: mockReadableStream,
       } as Response);
 
-      global.fetch = mockFetch;
+      globalThis.fetch = mockFetch;
 
       const result = await client.organization(123456789);
 
@@ -205,7 +205,7 @@ describe('Client', () => {
       const mockFetch = jest
         .fn<typeof fetch>()
         .mockRejectedValue(new APIError('API Error'));
-      global.fetch = mockFetch;
+      globalThis.fetch = mockFetch;
 
       await expect(client.organization(142007220)).rejects.toThrow(APIError);
       await expect(client.organization(142007220)).rejects.toThrow('API Error');
@@ -215,7 +215,7 @@ describe('Client', () => {
       const mockFetch = jest
         .fn<typeof fetch>()
         .mockRejectedValue(new Error('Generic Error'));
-      global.fetch = mockFetch;
+      globalThis.fetch = mockFetch;
 
       await expect(client.organization(142007220)).rejects.toThrow(APIError);
       await expect(client.organization(142007220)).rejects.toThrow(
@@ -227,7 +227,7 @@ describe('Client', () => {
       const mockFetch = jest
         .fn<typeof fetch>()
         .mockRejectedValue('Unknown error');
-      global.fetch = mockFetch;
+      globalThis.fetch = mockFetch;
 
       await expect(client.organization(142007220)).rejects.toThrow(APIError);
       await expect(client.organization(142007220)).rejects.toThrow(
@@ -239,7 +239,7 @@ describe('Client', () => {
       const mockFetch = jest
         .fn<typeof fetch>()
         .mockRejectedValue(new Error('Network error'));
-      global.fetch = mockFetch;
+      globalThis.fetch = mockFetch;
 
       await expect(client.organization(142007220)).rejects.toThrow(
         'Network error',
@@ -250,7 +250,7 @@ describe('Client', () => {
       const mockFetch = jest
         .fn<typeof fetch>()
         .mockRejectedValue('Unknown error');
-      global.fetch = mockFetch;
+      globalThis.fetch = mockFetch;
 
       await expect(client.organization(142007220)).rejects.toThrow(
         'An unknown error occurred',
