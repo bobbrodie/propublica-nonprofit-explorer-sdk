@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { APIError } from '../src/client';
+import { SDK_VERSION } from '../src/constants/api';
 import * as NonprofitExplorerSDK from '../src/index';
 import mockOrganizationUnknownResponse from './json/mockOrganizationUnknownResponse.json';
 import mockOrganizationResponse from './json/mockOrganizationResponse.json';
@@ -83,7 +84,7 @@ describe('Client', () => {
         'https://projects.propublica.org/nonprofits/api/v2/search.json?q=propublica',
         {
           headers: {
-            'User-Agent': 'NonProfitExplorerSDK/1.0.2',
+            'User-Agent': `NonProfitExplorerSDK/${SDK_VERSION}`,
           },
           method: 'GET',
         },
@@ -116,7 +117,7 @@ describe('Client', () => {
         'https://projects.propublica.org/nonprofits/api/v2/search.json',
         {
           headers: {
-            'User-Agent': 'NonProfitExplorerSDK/1.0.2',
+            'User-Agent': 'NonProfitExplorerSDK/4.0.0',
           },
           method: 'GET',
         },
@@ -154,7 +155,7 @@ describe('Client', () => {
           'state%5Bid%5D=NY&ntee%5Bid%5D=1&c_code%5Bid%5D=3',
         {
           headers: {
-            'User-Agent': 'NonProfitExplorerSDK/1.0.2',
+            'User-Agent': 'NonProfitExplorerSDK/4.0.0',
           },
           method: 'GET',
         },
@@ -238,7 +239,7 @@ describe('Client', () => {
         'https://projects.propublica.org/nonprofits/api/v2/organizations/142007220.json',
         {
           headers: {
-            'User-Agent': 'NonProfitExplorerSDK/1.0.2',
+            'User-Agent': 'NonProfitExplorerSDK/4.0.0',
           },
           method: 'GET',
         },
