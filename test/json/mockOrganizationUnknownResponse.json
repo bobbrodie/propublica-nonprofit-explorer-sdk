@@ -1,1 +1,79 @@
-{"organization":{"id":999999999,"ein":999999999,"name":"Unknown Organization","careofname":null,"address":null,"city":null,"state":null,"zipcode":null,"exemption_number":null,"subsection_code":null,"affiliation_code":null,"classification_codes":null,"ruling_date":null,"deductibility_code":null,"foundation_code":null,"activity_codes":null,"organization_code":null,"exempt_organization_status_code":null,"tax_period":null,"asset_code":null,"income_code":null,"filing_requirement_code":null,"pf_filing_requirement_code":null,"accounting_period":null,"asset_amount":null,"income_amount":null,"revenue_amount":null,"ntee_code":null,"sort_name":null,"created_at":null,"updated_at":null,"data_source":null,"have_extracts":null,"have_pdfs":null,"latest_object_id":null},"filings_with_data":[],"filings_without_data":[{"tax_prd":200807,"tax_prd_yr":2008,"formtype":2,"formtype_str":"990PF","pdf_url":"https://projects.propublica.org/nonprofits/download-filing?path=2007_10_PF%2F99-9999999_990PF_200807.pdf"},{"tax_prd":200707,"tax_prd_yr":2007,"formtype":0,"formtype_str":"990","pdf_url":"https://projects.propublica.org/nonprofits/download-filing?path=2007_02_EO%2F99-9999999_990_200707.pdf"},{"tax_prd":200607,"tax_prd_yr":2006,"formtype":1,"formtype_str":"990EZ","pdf_url":"https://projects.propublica.org/nonprofits/download-filing?path=2006_12_EO%2F99-9999999_990EZ_200607.pdf"},{"tax_prd":200412,"tax_prd_yr":2004,"formtype":0,"formtype_str":"990O","pdf_url":"https://projects.propublica.org/nonprofits/download-filing?path=2005_06_EO%2F99-9999999_990O_200412.pdf"},{"tax_prd":200206,"tax_prd_yr":2002,"formtype":1,"formtype_str":"990EZ","pdf_url":"https://projects.propublica.org/nonprofits/download-filing?path=2002_11_EO%2F99-9999999_990EZ_200206.pdf"}],"data_source":"ProPublica Nonprofit Explorer API: https://projects.propublica.org/nonprofits/api/\nIRS Exempt Organizations Business Master File Extract (EO BMF): https://www.irs.gov/charities-non-profits/exempt-organizations-business-master-file-extract-eo-bmf\nIRS Annual Extract of Tax-Exempt Organization Financial Data: https://www.irs.gov/uac/soi-tax-stats-annual-extract-of-tax-exempt-organization-financial-data","api_version":2}
+{
+  "organization": {
+    "id": 999999999,
+    "ein": 999999999,
+    "name": "Unknown Organization",
+    "careofname": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zipcode": null,
+    "exemption_number": null,
+    "subsection_code": null,
+    "affiliation_code": null,
+    "classification_codes": null,
+    "ruling_date": null,
+    "deductibility_code": null,
+    "foundation_code": null,
+    "activity_codes": null,
+    "organization_code": null,
+    "exempt_organization_status_code": null,
+    "tax_period": null,
+    "asset_code": null,
+    "income_code": null,
+    "filing_requirement_code": null,
+    "pf_filing_requirement_code": null,
+    "accounting_period": null,
+    "asset_amount": null,
+    "income_amount": null,
+    "revenue_amount": null,
+    "ntee_code": null,
+    "sort_name": null,
+    "created_at": null,
+    "updated_at": null,
+    "data_source": null,
+    "have_extracts": null,
+    "have_pdfs": null,
+    "latest_object_id": null
+  },
+  "filings_with_data": [],
+  "filings_without_data": [
+    {
+      "tax_prd": 200807,
+      "tax_prd_yr": 2008,
+      "formtype": 2,
+      "formtype_str": "990PF",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=2007_10_PF%2F99-9999999_990PF_200807.pdf"
+    },
+    {
+      "tax_prd": 200707,
+      "tax_prd_yr": 2007,
+      "formtype": 0,
+      "formtype_str": "990",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=2007_02_EO%2F99-9999999_990_200707.pdf"
+    },
+    {
+      "tax_prd": 200607,
+      "tax_prd_yr": 2006,
+      "formtype": 1,
+      "formtype_str": "990EZ",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=2006_12_EO%2F99-9999999_990EZ_200607.pdf"
+    },
+    {
+      "tax_prd": 200412,
+      "tax_prd_yr": 2004,
+      "formtype": 0,
+      "formtype_str": "990O",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=2005_06_EO%2F99-9999999_990O_200412.pdf"
+    },
+    {
+      "tax_prd": 200206,
+      "tax_prd_yr": 2002,
+      "formtype": 1,
+      "formtype_str": "990EZ",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=2002_11_EO%2F99-9999999_990EZ_200206.pdf"
+    }
+  ],
+  "data_source": "ProPublica Nonprofit Explorer API: https://projects.propublica.org/nonprofits/api/\nIRS Exempt Organizations Business Master File Extract (EO BMF): https://www.irs.gov/charities-non-profits/exempt-organizations-business-master-file-extract-eo-bmf\nIRS Annual Extract of Tax-Exempt Organization Financial Data: https://www.irs.gov/uac/soi-tax-stats-annual-extract-of-tax-exempt-organization-financial-data",
+  "api_version": 2
+}

@@ -120,7 +120,6 @@ export class Client {
     params: Record<string, string>,
   ): Promise<Response> {
     try {
-      // TODO: Set User-Agent header
       let url = API_BASE_URL + path;
 
       if (Object.keys(params).length > 0) {
