@@ -41,7 +41,6 @@ export default [
     languageOptions: {
       globals: {
         ...globals.node,
-        ...globals.jest,
         fetch: 'readonly',
       },
     },

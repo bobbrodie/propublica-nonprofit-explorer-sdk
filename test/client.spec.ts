@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, jest } from '@jest/globals';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { APIError } from '../src/client';
 import { SDK_VERSION } from '../src/constants/api';
 import * as NonprofitExplorerSDK from '../src/index';
@@ -61,7 +61,7 @@ describe('Client', () => {
         },
       });
 
-      const mockFetch = jest.fn<typeof fetch>().mockResolvedValue({
+      const mockFetch = vi.fn<typeof fetch>().mockResolvedValue({
         ok: true,
         status: 200,
         json: async () => mockSearchResponse,
@@ -101,7 +101,7 @@ describe('Client', () => {
         },
       });
 
-      const mockFetch = jest.fn<typeof fetch>().mockResolvedValue({
+      const mockFetch = vi.fn<typeof fetch>().mockResolvedValue({
         ok: true,
         status: 200,
         json: async () => mockSearchResponse,
@@ -134,7 +134,7 @@ describe('Client', () => {
         },
       });
 
-      const mockFetch = jest.fn<typeof fetch>().mockResolvedValue({
+      const mockFetch = vi.fn<typeof fetch>().mockResolvedValue({
         ok: true,
         status: 200,
         json: async () => mockSearchResponse,
@@ -163,7 +163,7 @@ describe('Client', () => {
     });
 
     it('should handle null response body', async () => {
-      const mockFetch = jest.fn<typeof fetch>().mockResolvedValue({
+      const mockFetch = vi.fn<typeof fetch>().mockResolvedValue({
         ok: true,
         status: 200,
         body: null,
@@ -176,7 +176,7 @@ describe('Client', () => {
     });
 
     it('should handle APIError', async () => {
-      const mockFetch = jest
+      const mockFetch = vi
         .fn<typeof fetch>()
         .mockRejectedValue(new APIError('API Error'));
       globalThis.fetch = mockFetch;
@@ -187,7 +187,7 @@ describe('Client', () => {
     });
 
     it('should handle network errors', async () => {
-      const mockFetch = jest
+      const mockFetch = vi
         .fn<typeof fetch>()
         .mockRejectedValue(new Error('Network error'));
       globalThis.fetch = mockFetch;
@@ -199,7 +199,7 @@ describe('Client', () => {
     });
 
     it('should handle unknown errors', async () => {
-      const mockFetch = jest
+      const mockFetch = vi
         .fn<typeof fetch>()
         .mockRejectedValue('Unknown error');
       globalThis.fetch = mockFetch;
@@ -222,7 +222,7 @@ describe('Client', () => {
         },
       });
 
-      const mockFetch = jest.fn<typeof fetch>().mockResolvedValue({
+      const mockFetch = vi.fn<typeof fetch>().mockResolvedValue({
         ok: true,
         status: 200,
         json: async () => mockOrganizationResponse,
@@ -258,7 +258,7 @@ describe('Client', () => {
         },
       });
 
-      const mockFetch = jest.fn<typeof fetch>().mockResolvedValue({
+      const mockFetch = vi.fn<typeof fetch>().mockResolvedValue({
         ok: true,
         status: 200,
         json: async () => mockOrganizationUnknownResponse,
@@ -274,7 +274,7 @@ describe('Client', () => {
     });
 
     it('should handle APIError', async () => {
-      const mockFetch = jest
+      const mockFetch = vi
         .fn<typeof fetch>()
         .mockRejectedValue(new APIError('API Error'));
       globalThis.fetch = mockFetch;
@@ -284,7 +284,7 @@ describe('Client', () => {
     });
 
     it('should handle Error and wrap it in APIError', async () => {
-      const mockFetch = jest
+      const mockFetch = vi
         .fn<typeof fetch>()
         .mockRejectedValue(new Error('Generic Error'));
       globalThis.fetch = mockFetch;
@@ -296,7 +296,7 @@ describe('Client', () => {
     });
 
     it('should handle unknown error and wrap it in APIError', async () => {
-      const mockFetch = jest
+      const mockFetch = vi
         .fn<typeof fetch>()
         .mockRejectedValue('Unknown error');
       globalThis.fetch = mockFetch;
@@ -308,7 +308,7 @@ describe('Client', () => {
     });
 
     it('should handle network errors', async () => {
-      const mockFetch = jest
+      const mockFetch = vi
         .fn<typeof fetch>()
         .mockRejectedValue(new Error('Network error'));
       globalThis.fetch = mockFetch;
@@ -319,7 +319,7 @@ describe('Client', () => {
     });
 
     it('should handle unknown errors', async () => {
-      const mockFetch = jest
+      const mockFetch = vi
         .fn<typeof fetch>()
         .mockRejectedValue('Unknown error');
       globalThis.fetch = mockFetch;

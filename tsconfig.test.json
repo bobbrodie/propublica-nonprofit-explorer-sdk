@@ -1,8 +1,8 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["test/**/*", "jest.config.ts"],
+  "include": ["test/**/*", "vitest.config.ts"],
   "compilerOptions": {
     "noEmit": true,
-    "types": ["jest", "node"]
+    "types": ["node"]
   }
 }
