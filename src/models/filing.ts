@@ -1,355 +1,356 @@
-import { FORMTYPEValue } from '../constants';
+import { z } from 'zod';
+import { FORMTYPE } from '../constants';
 
-/**
- * Filing
- */
-export interface IFiling {
+export const FilingSchema = z.object({
   /**
    * Employer Identification Number
    */
-  ein?: number;
+  ein: z.number().optional(),
 
   /**
    * Tax Period
    */
-  tax_prd: number;
+  tax_prd: z.number(),
 
   /**
    * Tax Period Year
    */
-  tax_prd_yr: number;
+  tax_prd_yr: z.number(),
 
   /**
    * Form Type
-   *
    */
-  formtype: FORMTYPEValue;
+  formtype: z.enum(FORMTYPE),
 
   /**
    * Form Type String
-   *
    */
-  formtype_str?: string;
+  formtype_str: z.string().optional(),
 
   /**
    * PDF URL
    */
-  pdf_url: string | null;
+  pdf_url: z.string().nullable(),
 
   /**
    * Updated
    */
-  updated?: Date;
+  updated: z.coerce.date().optional(),
 
   /**
    * Subsection code
    */
-  subseccd?: number;
+  subseccd: z.number().optional(),
 
   // Optional based on the form type
 
   /**
    * Total Revenue
    */
-  totrevenue?: number;
+  totrevenue: z.number().optional(),
 
   /**
    * Total Functional Expenses
    */
-  totfuncexpns?: number;
+  totfuncexpns: z.number().optional(),
 
   /**
    * Total Assets End
    */
-  totassetsend?: number;
+  totassetsend: z.number().optional(),
 
   /**
    * Total Liability End
    */
-  totliabend?: number;
+  totliabend: z.number().optional(),
 
   /**
    * Percentage of Expenses Marked Compensation
    */
-  pct_compnsatncurrofcr?: number;
+  pct_compnsatncurrofcr: z.number().optional(),
 
   /**
    * Tax Paid
    */
-  tax_pd?: string | null;
+  tax_pd: z.string().nullable().optional(),
 
   /**
    * Subsection Code
    */
-  unrelbusinccd?: string;
+  unrelbusinccd: z.string().optional(),
 
   /**
    * Initiation Fees
    */
-  initiationfees?: number;
+  initiationfees: z.number().optional(),
 
   /**
    * Gross Receipts Amount
    */
-  grsrcptspublicuse?: number;
+  grsrcptspublicuse: z.number().optional(),
 
   /**
    * Gross Income from Members
    */
-  grsincmembers?: number;
+  grsincmembers: z.number().optional(),
 
   /**
    * Gross Income from Other Sources
    */
-  grsincother?: number;
+  grsincother: z.number().optional(),
 
   /**
    * Total Contributions
    */
-  totcntrbgfts?: number;
+  totcntrbgfts: z.number().optional(),
 
   /**
    * Program Service Revenue
    */
-  totprgmrevnue?: number;
+  totprgmrevnue: z.number().optional(),
 
   /**
    * Investment Income
    */
-  invstmntinc?: number;
+  invstmntinc: z.number().optional(),
 
   /**
    * Tax-exempt bond proceeds
    */
-  txexmptbndsproceeds?: number;
+  txexmptbndsproceeds: z.number().optional(),
 
   /**
    * Royalties
    */
-  royaltsinc?: number;
+  royaltsinc: z.number().optional(),
 
   /**
    * Gross Rents - Real Estate
    */
-  grsrntsreal?: number;
+  grsrntsreal: z.number().optional(),
 
   /**
    * Gross Rents - Personal Property
    */
-  grsrntsprsnl?: number;
+  grsrntsprsnl: z.number().optional(),
 
   /**
    * Rental Expenses - Real Estate
    */
-  rntlexpnsreal?: number;
+  rntlexpnsreal: z.number().optional(),
 
   /**
    * Rental Expenses - Personal Property
    */
-  rntlexpnsprsnl?: number;
+  rntlexpnsprsnl: z.number().optional(),
 
   /**
    * Net Rent - Real Estate
    */
-  rntlincreal?: number;
+  rntlincreal: z.number().optional(),
 
   /**
    * Net Rent - Person Property
    */
-  rntlincprsnl?: number;
+  rntlincprsnl: z.number().optional(),
 
   /**
    * Net Rental Income
    */
-  netrntlinc?: number;
+  netrntlinc: z.number().optional(),
 
   /**
    * Net Gain from Sales - Securities
    */
-  grsalesecur?: number;
+  grsalesecur: z.number().optional(),
 
   /**
    * Net Gain from Sales - Other Assets
    */
-  grsalesothr?: number;
+  grsalesothr: z.number().optional(),
 
   /**
    * Sales Expense - Securities
    */
-  cstbasisecur?: number;
+  cstbasisecur: z.number().optional(),
 
   /**
    * Sales Expense - Other Assets
    */
-  cstbasisothr?: number;
+  cstbasisothr: z.number().optional(),
 
   /**
    * Net Gain from Sales - Securities
    */
-  gnlsecur?: number;
+  gnlsecur: z.number().optional(),
 
   /**
    * Net Gain from Sales - Other Assets
    */
-  gnlsothr?: number;
+  gnlsothr: z.number().optional(),
 
   /**
    * Sales of Assets
    */
-  netgnls?: number;
+  netgnls: z.number().optional(),
 
   /**
    * Gross Fundraising
    */
-  grsincfndrsng?: number;
+  grsincfndrsng: z.number().optional(),
 
   /**
    * Fundraising Expenses
    */
-  lessdirfndrsng?: number;
+  lessdirfndrsng: z.number().optional(),
 
   /**
    * Fundraising Income
    */
-  netincfndrsng?: number;
+  netincfndrsng: z.number().optional(),
 
   /**
    * Gross Income from Gaming
    */
-  grsincgaming?: number;
+  grsincgaming: z.number().optional(),
 
   /**
    * Gaming Expenses
    */
-  lessdirgaming?: number;
+  lessdirgaming: z.number().optional(),
 
   /**
    * Gaming Income
    */
-  netincgaming?: number;
+  netincgaming: z.number().optional(),
 
   /**
    * Gross Sales of Inventory
    */
-  grsalesinvent?: number;
+  grsalesinvent: z.number().optional(),
 
   /**
    * Cost of Goods Sold
    */
-  lesscstofgoods?: number;
+  lesscstofgoods: z.number().optional(),
 
   /**
    * Income from Sales of Inventory
    */
-  netincsales?: number;
+  netincsales: z.number().optional(),
 
   /**
    * Other Revenue
    */
-  miscrevtot11e?: number;
+  miscrevtot11e: z.number().optional(),
 
   /**
    * Compensation of Officers
    */
-  compnsatncurrofcr?: number;
+  compnsatncurrofcr: z.number().optional(),
 
   /**
    * Other Salaries and Wages
    */
-  othrsalwages?: number;
+  othrsalwages: z.number().optional(),
 
   /**
    * Payroll Taxes
    */
-  payrolltx?: number;
+  payrolltx: z.number().optional(),
 
   /**
    * Professional Fundraising Fees
    */
-  profndraising?: number;
+  profndraising: z.number().optional(),
 
   /**
    * Tax-exempt Bond Liabilities - EOY
    */
-  txexmptbndsend?: number;
+  txexmptbndsend: z.number().optional(),
 
   /**
    * Secured Mortgages and Notes Payable - EOY
    */
-  secrdmrtgsend?: number;
+  secrdmrtgsend: z.number().optional(),
 
   /**
    * Unsecured Mortgages and Notes Payable - EOY
    */
-  unsecurednotesend?: number;
+  unsecurednotesend: z.number().optional(),
 
   /**
    * Paid-in or Capital Surplus - EOY
    */
-  retainedearnend?: number;
+  retainedearnend: z.number().optional(),
 
   /**
    * Total Net Assets - EOY
    */
-  totnetassetend?: number;
+  totnetassetend: z.number().optional(),
 
   /**
    * Reason for non-PF status
    */
-  nonpfrea?: string;
+  nonpfrea: z.string().optional(),
 
   /**
    * Gift Grants Membership Fees Received
    */
-  gftgrntsrcvd170?: number;
+  gftgrntsrcvd170: z.number().optional(),
 
   /**
    * Tax Revenues Levied (170)
    */
-  txrevnuelevied170?: number;
+  txrevnuelevied170: z.number().optional(),
 
   /**
    * Services or Facilities Furnished by Gov
    */
-  srvcsval170?: number;
+  srvcsval170: z.number().optional(),
 
   /**
    * Gross Income from Interest
    */
-  grsinc170?: number;
+  grsinc170: z.number().optional(),
 
   /**
    * Gross Receipts from Related Activities
    */
-  grsrcptsrelated170?: number;
+  grsrcptsrelated170: z.number().optional(),
 
   /**
    * Gifts Grants Membership Fees Received
    */
-  totgftgrntrcvd509?: number;
+  totgftgrntrcvd509: z.number().optional(),
 
   /**
    * Receipts from Admissions Merchandise
    */
-  grsrcptsadmissn509?: number;
+  grsrcptsadmissn509: z.number().optional(),
 
   /**
    * Tax Revenues Levied (509)
    */
-  txrevnuelevied509?: number;
+  txrevnuelevied509: z.number().optional(),
 
   /**
    * Services or Facilities Furnished by Gov
    */
-  srvcsval509?: number;
+  srvcsval509: z.number().optional(),
 
   /**
    * Subtotal Total Support
    */
-  subtotsuppinc509?: number;
+  subtotsuppinc509: z.number().optional(),
 
   /**
    * Total Support
    */
-  totsupp509?: number;
-}
+  totsupp509: z.number().optional(),
+});
+
+/**
+ * Filing
+ */
+export type IFiling = z.infer<typeof FilingSchema>;

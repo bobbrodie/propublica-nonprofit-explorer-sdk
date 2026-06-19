@@ -1,76 +1,156 @@
-import { C_CODEValue, NTEEValue, STATEValue } from '../constants';
+import { z } from 'zod';
+import { C_CODE, NTEE, STATE } from '../constants';
 
-export interface ISearchRequest {
+export const SearchRequestSchema = z.object({
   /**
    * Search query
    */
-  q?: string;
+  q: z.string().optional(),
 
   /**
    * Zero-indexed page number
    */
-  page?: number;
+  page: z.number().optional(),
 
   /**
    * ISO 3166-2 state code
    *
    * @see {@link https://en.wikipedia.org/wiki/ISO_3166-2|ISO 3166-2}
    */
-  'state[id]'?: STATEValue;
+  'state[id]': z.enum(STATE).optional(),
 
   /**
    * National Taxonomy of Exempt Entities (NTEE) ID
    *
    * @see {@link NTEE}
    */
-  'ntee[id]'?: NTEEValue;
+  'ntee[id]': z.enum(NTEE).optional(),
 
   /**
    * Tax code subsection
    */
-  'c_code[id]'?: C_CODEValue;
-}
+  'c_code[id]': z.enum(C_CODE).optional(),
+});
 
-export interface ISearchResponse {
+/**
+ * Search request parameters
+ */
+export type ISearchRequest = z.infer<typeof SearchRequestSchema>;
+
+const SearchOrganizationSchema = z.object({
+  /**
+   * Employee Identification Number
+   */
+  ein: z.number(),
+
+  /**
+   * EIN version with dashes and leading zeroes
+   */
+  strein: z.string(),
+
+  /**
+   * Organization name
+   */
+  name: z.string(),
+
+  /**
+   * Organization subname
+   */
+  sub_name: z.string().nullable(),
+
+  /**
+   * Organization city
+   */
+  city: z.string(),
+
+  /**
+   * Organization state code
+   */
+  state: z.string(),
+
+  /**
+   * Organization NTEE code (value)
+   */
+  ntee_code: z.string().nullable(),
+
+  /**
+   * Organization raw NTEE code
+   */
+  raw_ntee_code: z.string().nullable(),
+
+  /**
+   * Organization tax code subsection (value)
+   */
+  subseccd: z.number(),
+
+  /**
+   * Whether the organization has a tax code subsection
+   */
+  has_subseccd: z.boolean(),
+
+  /**
+   * Whether the organization has filings
+   */
+  have_filings: z.boolean().nullable(),
+
+  /**
+   * Whether the organization has extracts
+   */
+  have_extracts: z.boolean().nullable(),
+
+  /**
+   * Whether the organization has PDFs
+   */
+  have_pdfs: z.boolean().nullable(),
+
+  /**
+   * Score
+   *
+   * Note: This is not defined in the API documentation
+   */
+  score: z.number(),
+});
+
+export const SearchResponseSchema = z.object({
   /**
    * Total number of results
    */
-  total_results: number;
+  total_results: z.number(),
 
   /**
    * Total number of pages (one-indexed)
    */
-  num_pages: number;
+  num_pages: z.number(),
 
   /**
    * Current page (zero-indexed)
    */
-  cur_page: number;
+  cur_page: z.number(),
 
   /**
    * Results per page
    */
-  per_page: number;
+  per_page: z.number(),
 
   /**
    * Page offset
    */
-  page_offset: number;
+  page_offset: z.number(),
 
   /**
    * Search query
    */
-  search_query: string | null;
+  search_query: z.string().nullable(),
 
   /**
    * Selected state (code)
    */
-  selected_state: string | null;
+  selected_state: z.string().nullable(),
 
   /**
    * Selected NTEE ID (value)
    */
-  selected_ntee: string | null;
+  selected_ntee: z.string().nullable(),
 
   /**
    * Selected tax code subsection
@@ -78,94 +158,37 @@ export interface ISearchResponse {
    * NOTE: The documentation says this should return an integer, but it actually
    *       returns a string.
    */
-  selected_code: string | null;
+  selected_code: z.string().nullable(),
 
   /**
    * Data source
    */
-  data_source: string;
+  data_source: z.string(),
 
   /**
    * API version
    */
-  api_version: number;
+  api_version: z.number(),
 
   /**
    * Organizations
    */
-  organizations: ISearchOrganization[];
+  organizations: z.array(SearchOrganizationSchema),
+});
+
+/**
+ * Search response object
+ */
+export type ISearchResponse = z.infer<typeof SearchResponseSchema>;
+
+export function validateSearchResponse(
+  response: ISearchResponse,
+): ISearchResponse {
+  return SearchResponseSchema.parse(response);
 }
 
-interface ISearchOrganization {
-  /**
-   * Employee Identification Number
-   */
-  ein: number;
-
-  /**
-   * EIN version with dashes and leading zeroes
-   */
-  strein: string;
-
-  /**
-   * Organization name
-   */
-  name: string;
-
-  /**
-   * Organization subname
-   */
-  sub_name: string | null;
-
-  /**
-   * Organization city
-   */
-  city: string;
-
-  /**
-   * Organization state code
-   */
-  state: string;
-
-  /**
-   * Organization NTEE code (value)
-   */
-  ntee_code: string | null;
-
-  /**
-   * Organization raw NTEE code
-   */
-  raw_ntee_code: string | null;
-
-  /**
-   * Organization tax code subsection (value)
-   */
-  subseccd: number;
-
-  /**
-   * Whether the organization has a tax code subsection
-   */
-  has_subseccd: boolean;
-
-  /**
-   * Whether the organization has filings
-   */
-  have_filings: boolean | null;
-
-  /**
-   * Whether the organization has extracts
-   */
-  have_extracts: boolean | null;
-
-  /**
-   * Whether the organization has PDFs
-   */
-  have_pdfs: boolean | null;
-
-  /**
-   * Score
-   *
-   * Note: This is not defined in the API documentation
-   */
-  score: number;
+export function validateSearchRequest(
+  request: unknown,
+): z.infer<typeof SearchRequestSchema> {
+  return SearchRequestSchema.parse(request);
 }
