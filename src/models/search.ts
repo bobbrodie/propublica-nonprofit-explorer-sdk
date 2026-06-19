@@ -155,8 +155,8 @@ export const SearchResponseSchema = z.object({
   /**
    * Selected tax code subsection
    *
-   * NOTE: The documentation says this should return an integer, but it actually
-   *       returns a string.
+   * The documentation says this should return an integer, but it actually
+   * returns a string.
    */
   selected_code: z.string().nullable(),
 

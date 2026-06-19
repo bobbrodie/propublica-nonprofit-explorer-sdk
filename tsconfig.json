@@ -16,15 +16,7 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },
-  "lib": [
-    "es2022",
-    "node"
-  ],
-  "include": [
-    "src/**/*.ts",
-  ],
-  "exclude": [
-    "coverage/**/*",
-    "test/json/**/*",
-  ]
+  "lib": ["es2022", "node"],
+  "include": ["src/**/*.ts"],
+  "exclude": ["coverage/**/*", "test/json/**/*"]
 }
