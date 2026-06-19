@@ -90,6 +90,77 @@ describe('Client', () => {
       );
     });
 
+    it('should search with no params', async () => {
+      const mockReadableStream = new ReadableStream({
+        start(controller) {
+          controller.enqueue(
+            new TextEncoder().encode(JSON.stringify(mockSearchResponse)),
+          );
+          controller.close();
+        },
+      });
+
+      const mockFetch = jest.fn<typeof fetch>().mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockSearchResponse,
+        text: async () => JSON.stringify(mockSearchResponse),
+        body: mockReadableStream,
+      } as Response);
+
+      globalThis.fetch = mockFetch;
+
+      await client.search({});
+
+      expect(mockFetch).toHaveBeenCalledWith(
+        'https://projects.propublica.org/nonprofits/api/v2/search.json',
+        {
+          headers: {
+            'User-Agent': 'NonProfitExplorerSDK/1.0.2',
+          },
+          method: 'GET',
+        },
+      );
+    });
+
+    it('should serialize state[id], ntee[id], and c_code[id] params', async () => {
+      const mockReadableStream = new ReadableStream({
+        start(controller) {
+          controller.enqueue(
+            new TextEncoder().encode(JSON.stringify(mockSearchResponse)),
+          );
+          controller.close();
+        },
+      });
+
+      const mockFetch = jest.fn<typeof fetch>().mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockSearchResponse,
+        text: async () => JSON.stringify(mockSearchResponse),
+        body: mockReadableStream,
+      } as Response);
+
+      globalThis.fetch = mockFetch;
+
+      await client.search({
+        'state[id]': 'NY',
+        'ntee[id]': 1,
+        'c_code[id]': 3,
+      });
+
+      expect(mockFetch).toHaveBeenCalledWith(
+        'https://projects.propublica.org/nonprofits/api/v2/search.json?' +
+          'state%5Bid%5D=NY&ntee%5Bid%5D=1&c_code%5Bid%5D=3',
+        {
+          headers: {
+            'User-Agent': 'NonProfitExplorerSDK/1.0.2',
+          },
+          method: 'GET',
+        },
+      );
+    });
+
     it('should handle null response body', async () => {
       const mockFetch = jest.fn<typeof fetch>().mockResolvedValue({
         ok: true,

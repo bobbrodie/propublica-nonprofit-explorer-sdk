@@ -3,12 +3,10 @@ import {
   IOrganizationResponse,
   ISearchRequest,
   ISearchResponse,
-} from './models';
-import { validateOrganizationResponse } from './models/organization.zod';
-import {
+  validateOrganizationResponse,
   validateSearchRequest,
   validateSearchResponse,
-} from './models/search.zod';
+} from './models';
 
 export class APIError extends Error {
   constructor(message: string) {
