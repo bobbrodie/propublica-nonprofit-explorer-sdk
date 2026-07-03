@@ -117,7 +117,7 @@ describe('Client', () => {
         'https://projects.propublica.org/nonprofits/api/v2/search.json',
         {
           headers: {
-            'User-Agent': 'NonProfitExplorerSDK/4.0.0',
+            'User-Agent': 'NonProfitExplorerSDK/4.0.1',
           },
           method: 'GET',
         },
@@ -155,7 +155,7 @@ describe('Client', () => {
           'state%5Bid%5D=NY&ntee%5Bid%5D=1&c_code%5Bid%5D=3',
         {
           headers: {
-            'User-Agent': 'NonProfitExplorerSDK/4.0.0',
+            'User-Agent': 'NonProfitExplorerSDK/4.0.1',
           },
           method: 'GET',
         },
@@ -239,7 +239,7 @@ describe('Client', () => {
         'https://projects.propublica.org/nonprofits/api/v2/organizations/142007220.json',
         {
           headers: {
-            'User-Agent': 'NonProfitExplorerSDK/4.0.0',
+            'User-Agent': 'NonProfitExplorerSDK/4.0.1',
           },
           method: 'GET',
         },

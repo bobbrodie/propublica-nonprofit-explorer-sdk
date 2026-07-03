@@ -1,6 +1,6 @@
 {
   "name": "propublica-nonprofit-explorer-sdk",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "SDK for ProPublica Nonprofit Explorer API",
   "main": "dist/index",
   "types": "dist/index",
