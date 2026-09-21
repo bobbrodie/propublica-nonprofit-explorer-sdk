@@ -4,6 +4,6 @@ src/
 .gitignore
 .prettierignore
 .prettierrc
-eslint.config.mjs
+.oxlintrc.json
 jest.config.ts
 tsconfig.json

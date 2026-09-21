@@ -65,13 +65,10 @@ default = true
 name = "actionlint"
 
 [[plugin]]
-name = "eslint"
-version = "10.0.1"
-package_file = "package.json"
-package_filters = ["eslint", "globals", "jest", "prettier"]
+name = "osv-scanner"
 
 [[plugin]]
-name = "osv-scanner"
+name = "oxc"
 
 [[plugin]]
 name = "prettier"

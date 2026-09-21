@@ -1,0 +1,36 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "oxc", "unicorn", "import"],
+  "categories": {
+    "correctness": "error"
+  },
+  "env": {
+    "node": true,
+    "es2024": true
+  },
+  "globals": {
+    "fetch": "readonly"
+  },
+  "ignorePatterns": ["coverage/", "dist/", "test/json/"],
+  "rules": {
+    "no-console": "error",
+    "no-redeclare": "off",
+    "prefer-arrow-callback": "error",
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.js", "**/*.jsx", "**/*.mjs", "**/*.cjs"],
+      "rules": {
+        "typescript/no-require-imports": "off",
+        "no-undef": "off"
+      }
+    }
+  ]
+}
