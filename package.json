@@ -37,7 +37,7 @@
     "dist/**/*.d.ts"
   ],
   "devDependencies": {
-    "@vitest/coverage-v8": "5.1.0",
+    "@vitest/coverage-v8": "5.1.1",
     "husky": "9.1.7",
     "lint-staged": "17.6.1",
     "oxlint": "1.94.0",
